@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+    <meta charset="UTF-8">
+    <title>Student</title>
+    <link rel="stylesheet" href="styles/main.css">
+	</head>
+	<body ng-app="student">
+    <a href="home">Home</a>
+    <a href="students">Students</a>
+    <a href="courses">Courses</a>
+
+    <ui-view></ui-view>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular-ui-router/1.0.0-rc.1/angular-ui-router.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/StudentsCtrl.js"></script>
+    <script src="scripts/controllers/CoursesCtrl.js"></script>
+    <script src="scripts/services/StudentSvc.js"></script>
+    <script src="scripts/services/CourseSvc.js"></script>
+	</body>
+</html>
