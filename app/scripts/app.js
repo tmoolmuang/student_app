@@ -16,6 +16,14 @@
 				templateUrl: "templates/students.html",
 				controller: "StudentsCtrl"
 			})
+			.state("student_view", {
+				url: "/student_view",
+				templateUrl: "templates/student_view.html",
+				controller: "StudentViewCtrl",
+				params: {
+			    id: null
+			  }
+			})
 			.state("courses", {
 				url: "/courses",
 				templateUrl: "templates/courses.html",

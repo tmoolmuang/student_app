@@ -1,16 +1,17 @@
 <div>
-	<h3>students view</h3>
-	{{a}}
+	<h3>all students view</h3>
 	<table>
 		<thead>
 		  <tr>
 		    <th>Id</th>
 		    <th>Name</th>
+		    <th></th>
 		  </tr>
 		</thead>
 		<tr ng-repeat="s in students">
 		  <td>{{s.id}}</td>
 		  <td>{{s.name}}</td>
+		  <td><a ui-sref="student_view({id: s.id})">view</a></td>
 		</tr>
 	</table>
 </div>

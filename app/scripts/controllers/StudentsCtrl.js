@@ -1,12 +1,12 @@
 (function() {
-	function studentsCtrlFunct($scope, StudentSvc) {
-		$scope.a = "yo";
+	function studentsCtrlFunct($scope, StudentSvc, $stateParams) {
 		StudentSvc.getAllStudents(function(r) {
       $scope.students = r;
-    });    
+    });   
+
 	}
 
 	angular
 		.module("student")
-		.controller("StudentsCtrl", ["$scope", "StudentSvc", studentsCtrlFunct]);
+		.controller("StudentsCtrl", ["$scope", "StudentSvc", "$stateParams", studentsCtrlFunct]);
 })();
