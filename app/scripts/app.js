@@ -24,12 +24,18 @@
 			    id: null
 			  }
 			})
+			.state("student_create", {
+				url: "/student_create",
+				templateUrl: "templates/student_create.html",
+				controller: "StudentCreateCtrl"
+			})
 			.state("courses", {
 				url: "/courses",
 				templateUrl: "templates/courses.html",
 				controller: "CoursesCtrl"
 			});	
 	}
+	
 	angular
   	.module("student", ["ui.router"])
     .config(configFunct);

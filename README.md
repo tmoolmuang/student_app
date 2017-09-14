@@ -1,4 +1,4 @@
 ## Student and Courses
 in progress
 
-Using AngularJS app to consume API
+Using AngularJS app to consume REST API

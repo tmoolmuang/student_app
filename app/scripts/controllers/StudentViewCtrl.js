@@ -3,7 +3,6 @@
 		StudentSvc.getStudent($stateParams.id, function(r) {
       $scope.student = r;
     });    
-
 	}
 
 	angular
