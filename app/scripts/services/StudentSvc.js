@@ -53,6 +53,40 @@
       });
     }; 
 
+    Students.updateStudent = function(student, cb) {
+      $http({
+        url: URL + "/" + student.id,
+        method: "PUT",
+        headers: {
+          "Authorization": TOKEN,
+          "Content-Type": "application/json"
+        },
+        data: {
+          "name": student.name
+        }
+      }).then(function(resp) {
+        // $log.log(resp.data.data);
+        cb(resp.data.data);
+      }, function(resp) {
+        $log.error("ERROR occurred");
+      });
+    }; 
+
+   Students.deleteStudent = function(id, cb) {
+      $http({
+        url: URL + "/" + id,
+        method: "DELETE",
+        headers: {
+          "Authorization": TOKEN,
+        }
+      }).then(function(resp) {
+        // $log.log(resp.data.data);
+        cb();
+      }, function(resp) {
+        $log.error("ERROR occurred");
+      });
+    }; 
+
     return Students;
   }
 

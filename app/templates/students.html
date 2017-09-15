@@ -12,7 +12,8 @@
 		<tr ng-repeat="s in students">
 		  <td>{{s.id}}</td>
 		  <td>{{s.name}}</td>
-		  <td><a ui-sref="student_view({id: s.id})">view</a></td>
+		  <td><a ui-sref="student_view({ id: s.id })">view</a></td>
+		  <td><a href="#" ng-click="deleteStudent(s.id)">delete</a></td>
 		</tr>
 	</table>
 </div>

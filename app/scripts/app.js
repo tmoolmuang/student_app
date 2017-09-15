@@ -29,6 +29,14 @@
 				templateUrl: "templates/student_create.html",
 				controller: "StudentCreateCtrl"
 			})
+			.state("student_update", {
+				url: "/student_update",
+				templateUrl: "templates/student_update.html",
+				controller: "StudentUpdateCtrl",
+				params: {
+			    student: null
+			  }
+			})
 			.state("courses", {
 				url: "/courses",
 				templateUrl: "templates/courses.html",
