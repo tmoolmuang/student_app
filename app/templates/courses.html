@@ -1,16 +1,19 @@
 <div>
+	<h3>all available courses</h3>
 	<table>
 		<thead>
 		  <tr>
 		    <th>Id</th>
 		    <th>Name</th>
 		    <th>Description</th>
+		    <th></th>
 		  </tr>
 		</thead>
 		<tr ng-repeat="c in courses">
 		  <td>{{c.id}}</td>
 		  <td>{{c.name}}</td>
 		  <td>{{c.description}}</td>
+		  <td><a ui-sref="course_view({ id: c.id })">view</a></td>
 		</tr>
 	</table>
 </div>

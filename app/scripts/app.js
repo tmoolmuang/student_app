@@ -41,7 +41,15 @@
 				url: "/courses",
 				templateUrl: "templates/courses.html",
 				controller: "CoursesCtrl"
-			});	
+			})	
+			.state("course_view", {
+				url: "/course_view",
+				templateUrl: "templates/course_view.html",
+				controller: "CourseViewCtrl",
+				params: {
+			    id: null
+			  }
+			});
 	}
 	
 	angular
