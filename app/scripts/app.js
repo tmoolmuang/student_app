@@ -49,6 +49,19 @@
 				params: {
 			    id: null
 			  }
+			})
+			.state("course_create", {
+				url: "/course_create",
+				templateUrl: "templates/course_create.html",
+				controller: "CourseCreateCtrl"
+			})
+			.state("course_update", {
+				url: "/course_update",
+				templateUrl: "templates/course_update.html",
+				controller: "CourseUpdateCtrl",
+				params: {
+			    course: null
+			  }
 			});
 	}
 	

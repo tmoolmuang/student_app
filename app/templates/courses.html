@@ -1,4 +1,5 @@
 <div>
+	<a ui-sref="course_create">add new course</a>
 	<h3>all available courses</h3>
 	<table>
 		<thead>
@@ -14,6 +15,7 @@
 		  <td>{{c.name}}</td>
 		  <td>{{c.description}}</td>
 		  <td><a ui-sref="course_view({ id: c.id })">view</a></td>
+		  <td><a href="#" ng-click="deleteCourse(c.id)">delete</a></td>
 		</tr>
 	</table>
 </div>

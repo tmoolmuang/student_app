@@ -1,5 +1,5 @@
 (function() {
-	function studentsUpdateCtrlFunct($scope, $state, $stateParams, StudentSvc) {
+	function studentUpdateCtrlFunct($scope, $state, $stateParams, StudentSvc) {
 		$scope.student = $stateParams.student
 
     $scope.updateStudent = function() {
@@ -11,5 +11,5 @@
 
 	angular
 		.module("student")
-		.controller("StudentUpdateCtrl", ["$scope", "$state", "$stateParams", "StudentSvc", studentsUpdateCtrlFunct]);
+		.controller("StudentUpdateCtrl", ["$scope", "$state", "$stateParams", "StudentSvc", studentUpdateCtrlFunct]);
 })();
