@@ -1,0 +1,20 @@
+<div>
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Student</th>
+				<th>Course</th>
+				<th>Note</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tr ng-repeat="r in records | orderBy: ['student_id', 'course_id']">
+			<td>{{r.id}}</td>
+			<th>{{r.student_id}}</th>
+			<td>{{r.course_id}}</td>
+			<td>{{r.note}}</td>
+			<td></td>
+		</tr>
+	</table>
+</div>

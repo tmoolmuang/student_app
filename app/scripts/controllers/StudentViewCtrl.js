@@ -1,8 +1,9 @@
 (function() {
 	function studentViewCtrlFunct($scope, $stateParams, StudentSvc) {
-		StudentSvc.getStudent($stateParams.id, function(r) {
+		$scope.studentID = $stateParams.id;
+		StudentSvc.getStudent($scope.studentID, function(r) {
       $scope.student = r;
-    });    
+    });
 	}
 
 	angular

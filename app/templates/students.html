@@ -9,7 +9,7 @@
 		    <th></th>
 		  </tr>
 		</thead>
-		<tr ng-repeat="s in students">
+		<tr ng-repeat="s in students | orderBy: 'id'">
 		  <td>{{s.id}}</td>
 		  <td>{{s.name}}</td>
 		  <td><a ui-sref="student_view({ id: s.id })">view</a></td>

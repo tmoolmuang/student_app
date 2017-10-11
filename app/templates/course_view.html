@@ -6,13 +6,14 @@
 		    <th>Id</th>
 		    <th>Name</th>
 		    <th>Description</th>
+				<th></th>
 		  </tr>
 		</thead>
 		<tr>
 		  <td>{{course.id}}</td>
 		  <td>{{course.name}}</td>
 		  <td>{{course.description}}</td>
+			<td><a ui-sref="course_update({ course: course })">update</a></td>
 		</tr>
 	</table>
-	<a ui-sref="course_update({ course: course })">update</a>
 </div>

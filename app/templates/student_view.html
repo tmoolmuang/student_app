@@ -5,12 +5,36 @@
 		  <tr>
 		    <th>Id</th>
 		    <th>Name</th>
+				<th></th>
 		  </tr>
 		</thead>
 		<tr>
 		  <td>{{student.id}}</td>
 		  <td>{{student.name}}</td>
+			<td><a ui-sref="student_update({ student: student })">update</a></td>
 		</tr>
 	</table>
-	<a ui-sref="student_update({ student: student })">update</a>
+	<div ng-controller="CoursesCtrl">
+		<div ng-controller="StudentCoursesCtrl">
+			<table>
+				<thead>
+				  <tr>
+				    <th>Id</th>
+				    <th>Course</th>
+						<th>Note</th>
+						<!-- <th></th> -->
+				  </tr>
+				</thead>
+				<tr ng-repeat="r in student_courses | orderBy: 'id'">
+				  <td>{{r.id}}</td>
+					<td>
+						<select ng-model="r.course_id" ng-options="c.id as c.description for c in courses" disabled>
+						</select>
+					</td>
+				  <td>{{r.note}}</td>
+				  <!-- <td><a href="#" ng-click="deleteCourse(c.id)">delete record</a></td> -->
+				</tr>
+			</table>
+		</div>
+	</div>
 </div>

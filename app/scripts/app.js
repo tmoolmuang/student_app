@@ -41,7 +41,7 @@
 				url: "/courses",
 				templateUrl: "templates/courses.html",
 				controller: "CoursesCtrl"
-			})	
+			})
 			.state("course_view", {
 				url: "/course_view",
 				templateUrl: "templates/course_view.html",
@@ -62,9 +62,14 @@
 				params: {
 			    course: null
 			  }
+			})
+			.state("student_courses", {
+				url: "/student_courses",
+				templateUrl: "templates/student_courses.html",
+				controller: "StudentCoursesCtrl"
 			});
 	}
-	
+
 	angular
   	.module("student", ["ui.router"])
     .config(configFunct);
