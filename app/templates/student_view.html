@@ -14,9 +14,10 @@
 			<td><a ui-sref="student_update({ student: student })">update</a></td>
 		</tr>
 	</table>
+	<br />
 	<div ng-controller="CoursesCtrl">
 		<div ng-controller="StudentCoursesCtrl">
-			<table>
+			<table ng-show="student_courses.length > 0">
 				<thead>
 				  <tr>
 				    <th>Id</th>
@@ -32,9 +33,18 @@
 						</select>
 					</td>
 				  <td>{{r.note}}</td>
-				  <!-- <td><a href="#" ng-click="deleteCourse(c.id)">delete record</a></td> -->
 				</tr>
 			</table>
+			<div ng-hide="student_courses.length > 0">
+				** no courses registered **
+			</div>
 		</div>
+	</div>
+	<div ng-controller="StudentCourseCreateCtrl">
+		<a ui-sref="studentcourse_create({ student_id: student.id })">add course</a>
+
+		<!-- <a ui-sref="studentcourse_create({ student_id: student.id })">
+    	<button>add course</button>
+		</a> -->
 	</div>
 </div>

@@ -67,6 +67,14 @@
 				url: "/student_courses",
 				templateUrl: "templates/student_courses.html",
 				controller: "StudentCoursesCtrl"
+			})
+			.state("studentcourse_create", {
+				url: "/studentcourse_create",
+				templateUrl: "templates/student_course_create.html",
+				controller: "StudentCourseCreateCtrl",
+				params: {
+			    student_id: null
+			  }
 			});
 	}
 

@@ -17,4 +17,11 @@
 			<td></td>
 		</tr>
 	</table>
+	<hr>
+	<div ng-repeat="coursesPerStudent in allRecords() | filter: filterStudents | orderBy: 'student_id'">
+		<ul>{{coursesPerStudent.student_id}}
+			<li ng-repeat="course in records | filter: {student_id: coursesPerStudent.student_id } | orderBy: 'course_id'">{{course.course_id}}</li>
+		</ul>
+	</div>
+
 </div>

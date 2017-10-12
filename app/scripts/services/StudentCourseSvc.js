@@ -1,10 +1,10 @@
 (function() {
   function studentCourseSvcFunct($http, $log) {
-    var Courses = {};
+    var StudentCourse = {};
     var URL = "https://students-tm.herokuapp.com/api/v1/records";
     var TOKEN = "Token token=MitJ68gojrz_55N3n8MKxg";
 
-    Courses.getCoursesForStudent = function(student, cb) {
+    StudentCourse.getCoursesForStudent = function(student, cb) {
       $http({
         url: URL,
         method: "GET",
@@ -24,7 +24,7 @@
       });
     };
 
-    Courses.getAllRecords = function(cb) {
+    StudentCourse.getAllRecords = function(cb) {
       $http({
         url: URL,
         method: "GET",
@@ -39,17 +39,17 @@
       });
     };
 
-    Courses.createRecord = function(course, cb) {
+    StudentCourse.createStudentCourse = function(studentcourse, cb) {
       $http({
-        url: URL,
+        url: "https://students-tm.herokuapp.com/api/v1/students/" + studentcourse.student_id + "/student_courses",
         method: "POST",
         headers: {
           "Authorization": TOKEN,
           "Content-Type": "application/json"
         },
         data: {
-          "name": course.name,
-          "description": course.description
+          "course_id": studentcourse.course_id,
+          "note": studentcourse.note
         }
       }).then(function(resp) {
         // $log.log(resp.data.data);
@@ -59,7 +59,7 @@
       });
     };
 
-    Courses.deleteRecord = function(id, cb) {
+    StudentCourse.deleteRecord = function(id, cb) {
       $http({
         url: URL + "/" + id,
         method: "DELETE",
@@ -74,7 +74,7 @@
       });
     };
 
-    return Courses;
+    return StudentCourse;
   }
 
   angular

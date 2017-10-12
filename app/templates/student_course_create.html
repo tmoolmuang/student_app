@@ -1,0 +1,14 @@
+<div>
+	<h3>register new course for student</h3>
+	<div ng-controller="CoursesCtrl">
+		<form ng-submit="createStudentCourse()">
+			course: <select ng-model="studentcourse.course_id" ng-options="c.id as c.description for c in courses">
+								<option value="">---Please select---</option>
+								{{c.description}}
+							</select><br />
+			note: <input type="text" ng-model="studentcourse.note"><br /><br />
+	    <input type="submit">
+			<button type="button" ng-click="cancelCreate()">Cancel</button>
+	  </form>
+	</div>
+</div>
