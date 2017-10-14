@@ -1,12 +1,57 @@
 (function() {
-	function studentCoursesCtrlFunct($scope, StudentCourseSvc) {
+	function studentCoursesCtrlFunct($scope, CourseSvc, StudentSvc, StudentCourseSvc) {
+		var records = [];
+		var course_list = [];
+		var student_list = [];
+
+		prepareLookup();
+
 		StudentCourseSvc.getCoursesForStudent($scope.$parent.studentID, function(r) {
       $scope.student_courses = r;
     });
 
 		StudentCourseSvc.getAllRecords(function(r) {
       $scope.records = r;
+			records = r.slice();
+			prepareLookup();
+			addLookup(records);
     });
+
+		$scope.deleteStudentCourse = function(id, student_id) {
+    	if (confirm("Are you sure you want to delete this course?")) {
+	    	StudentCourseSvc.deleteStudentCourse(id, student_id, function(r) {
+					var pos = $scope.student_courses.map(function(e) { return e.id; }).indexOf(id);
+	        $scope.student_courses.splice(pos, 1);
+	    	});
+    	};
+    };
+
+		function prepareLookup() {
+			CourseSvc.getAllCourses(function(r) {
+				course_list = r.slice();
+			});
+			StudentSvc.getAllStudents(function(r) {
+				student_list = r.slice();
+			});
+		}
+
+		var addLookup = function(records) {
+			for (var j=0; j<records.length; j++) {
+				for (var i=0; i<course_list.length; i++) {
+					if (course_list[i].id == records[j].course_id) {
+						records[j].course_name = course_list[i].name;
+						break;
+					}
+				}
+				for (var i=0; i<student_list.length; i++) {
+					if (student_list[i].id == records[j].student_id) {
+						records[j].student_name = student_list[i].name;
+						break;
+					}
+				}
+			}
+			$scope.lookuprecords = records.slice();
+		}
 
 		//grouping and filtering logic
 		var indexedStudents = [];
@@ -21,10 +66,9 @@
       }
       return studentIsNew;
     }
-
 	}
 
 	angular
 		.module("student")
-		.controller("StudentCoursesCtrl", ["$scope", "StudentCourseSvc", studentCoursesCtrlFunct]);
+		.controller("StudentCoursesCtrl", ["$scope", "CourseSvc", "StudentSvc", "StudentCourseSvc", studentCoursesCtrlFunct]);
 })();

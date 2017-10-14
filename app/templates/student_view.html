@@ -23,7 +23,7 @@
 				    <th>Id</th>
 				    <th>Course</th>
 						<th>Note</th>
-						<!-- <th></th> -->
+						<th></th>
 				  </tr>
 				</thead>
 				<tr ng-repeat="r in student_courses | orderBy: 'id'">
@@ -33,6 +33,7 @@
 						</select>
 					</td>
 				  <td>{{r.note}}</td>
+					<td><a href="#" ng-click="deleteStudentCourse(r.id, r.student_id)">delete</a></td>
 				</tr>
 			</table>
 			<div ng-hide="student_courses.length > 0">

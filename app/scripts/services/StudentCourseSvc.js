@@ -59,9 +59,9 @@
       });
     };
 
-    StudentCourse.deleteRecord = function(id, cb) {
+    StudentCourse.deleteStudentCourse = function(id, student_id, cb) {
       $http({
-        url: URL + "/" + id,
+        url: "https://students-tm.herokuapp.com/api/v1/students/" + student_id + "/student_courses/" + id,
         method: "DELETE",
         headers: {
           "Authorization": TOKEN,
