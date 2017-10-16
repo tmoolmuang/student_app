@@ -4,8 +4,6 @@
 		var course_list = [];
 		var student_list = [];
 
-		prepareLookup();
-
 		StudentCourseSvc.getCoursesForStudent($scope.$parent.studentID, function(r) {
       $scope.student_courses = r;
     });
@@ -13,8 +11,7 @@
 		StudentCourseSvc.getAllRecords(function(r) {
       $scope.records = r;
 			records = r.slice();
-			prepareLookup();
-			addLookup(records);
+			setTimeout(doLookup(), 5000);
     });
 
 		$scope.deleteStudentCourse = function(id, student_id) {
@@ -26,16 +23,18 @@
     	};
     };
 
-		function prepareLookup() {
+		//utilize promise to ensure student, and course look-up ready for records
+		var prepareLookup = new Promise(function(resolve, reject) {
 			CourseSvc.getAllCourses(function(r) {
 				course_list = r.slice();
 			});
 			StudentSvc.getAllStudents(function(r) {
 				student_list = r.slice();
 			});
-		}
+			return resolve(true);
+		});
 
-		var addLookup = function(records) {
+		function doLookup() {
 			for (var j=0; j<records.length; j++) {
 				for (var i=0; i<course_list.length; i++) {
 					if (course_list[i].id == records[j].course_id) {
@@ -53,11 +52,18 @@
 			$scope.lookuprecords = records.slice();
 		}
 
+		prepareLookup.then((res) => {
+			if (res == true) {
+				doLookup();
+			}
+		});
+
 		//grouping and filtering logic
 		var indexedStudents = [];
     $scope.allRecords = function() {
       indexedStudents = [];
-      return $scope.records;
+      // return $scope.records;
+			return $scope.lookuprecords;
     }
     $scope.filterStudents = function(course) {
       var studentIsNew = indexedStudents.indexOf(course.student_id) == -1;

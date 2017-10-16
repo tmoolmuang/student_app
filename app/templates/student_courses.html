@@ -1,5 +1,5 @@
 <div>
-	<table>
+	<!-- <table>
 		<thead>
 			<tr>
 				<th>Id</th>
@@ -50,6 +50,25 @@
 			<td></td>
 		</tr>
 	</table>
+	<hr> -->
 
+	<div ng-repeat="coursesPerStudent in allRecords() | filter: filterStudents | orderBy: 'student_id'">
+		<span>Student: <strong>{{coursesPerStudent.student_name}}</strong></span>
+		<table>
+			<thead>
+				<tr>
+					<th>CourseName</th>
+					<th>Note</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tr ng-repeat="course in lookuprecords | filter: {student_id: coursesPerStudent.student_id } | orderBy: 'course_id'">
+				<td>{{course.course_name}}</td>
+				<td>{{course.note}}</td>
+				<td></td>
+			</tr>
+		</table>
+		<hr>
+	</div>
 
 </div>
