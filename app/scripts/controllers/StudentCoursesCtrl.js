@@ -3,7 +3,6 @@
 		var records = [];
 		var course_list = [];
 		var student_list = [];
-		$scope.lookuprecords = [];
 
 		StudentCourseSvc.getCoursesForStudent($scope.$parent.studentID, function(r) {
       $scope.student_courses = r;
@@ -23,6 +22,8 @@
     	};
     };
 
+		//utilizing promise to ensure course name, and student name are ready before
+		//the lookup logic
 		function getCourseName() {
 			return new Promise(function(resolve, reject) {
 				CourseSvc.getAllCourses(function(r) {
@@ -63,6 +64,8 @@
 		  return getStudentName();
 		}).then(function(from2) {
 		  doLookup();
+			//rebind current $scope since ng-repeat has already been performed before
+			//we finish the API calls
 			$scope.$digest();
 		});
 
@@ -70,7 +73,6 @@
 		var indexedStudents = [];
     $scope.allRecords = function() {
       indexedStudents = [];
-      // return $scope.records;
 			return $scope.lookuprecords;
     }
     $scope.filterStudents = function(course) {
