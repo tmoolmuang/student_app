@@ -1,7 +1,9 @@
 (function() {
 	function studentsCtrlFunct($scope, StudentSvc) {
+		$scope.loading = true;
 		StudentSvc.getAllStudents(function(r) {
       $scope.students = r;
+			$scope.loading = false;
     });
 
     $scope.deleteStudent = function(id) {

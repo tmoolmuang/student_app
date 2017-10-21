@@ -1,7 +1,9 @@
 (function() {
 	function coursesCtrlFunct($scope, CourseSvc) {
+		$scope.loading = true;
 		CourseSvc.getAllCourses(function(r) {
       $scope.courses = r;
+			$scope.loading = false;
     });    
 
     $scope.deleteCourse = function(id) {

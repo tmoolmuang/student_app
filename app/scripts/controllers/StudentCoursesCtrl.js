@@ -3,6 +3,7 @@
 		var records = [];
 		var course_list = [];
 		var student_list = [];
+		$scope.loading = true;
 
 		StudentCourseSvc.getCoursesForStudent($scope.$parent.studentID, function(r) {
       $scope.student_courses = r;
@@ -58,6 +59,7 @@
 				}
 			}
 			$scope.lookuprecords = records.slice();
+			$scope.loading = false;
 		}
 
 		getCourseName().then(function(from1){

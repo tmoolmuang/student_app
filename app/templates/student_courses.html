@@ -53,6 +53,7 @@
 	</table>
 	<hr> -->
 
+	<div ng-show="loading"><img src="/scripts/assets/spinner.gif" /></div>
 	<div ng-repeat="coursesPerStudent in allRecords() | filter: filterStudents | orderBy: 'student_id'">
 		<span>Student: <strong>{{coursesPerStudent.student_name}}</strong></span>
 		<table>
@@ -71,5 +72,4 @@
 		</table>
 		<hr>
 	</div>
-
 </div>
