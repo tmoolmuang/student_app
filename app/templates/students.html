@@ -1,20 +1,36 @@
 <div>
-	<a ui-sref="student_create">add new student</a>
-	<h3>all students view</h3>
-	<table>
-		<thead>
-		  <tr>
-		    <th>Id</th>
-		    <th>Name</th>
-		    <th></th>
-		  </tr>
-		</thead>
-		<tr ng-repeat="s in students | orderBy: 'id'">
-		  <td>{{s.id}}</td>
-		  <td>{{s.name}}</td>
-		  <td><a ui-sref="student_view({ id: s.id })">view</a></td>
-		  <td><a href="#" ng-click="deleteStudent(s.id)">delete</a></td>
-		</tr>
-	</table>
+  <div class="row">
+		<div class="col-1">
+		</div>
+		<div class="col-5">
+			<a ui-sref="student_create">
+				<button class="btn btn-primary">add new student</button>
+			</a>
+			<h3>List of all students</h3>
+			<table class="table table-sm table-striped">
+				<thead>
+				  <tr>
+				    <th>Id</th>
+				    <th>Name</th>
+				    <th></th>
+				  </tr>
+				</thead>
+				<tr ng-repeat="s in students | orderBy: 'id'">
+				  <td>{{s.id}}</td>
+				  <td>{{s.name}}</td>
+					<td>
+						<a ui-sref="student_view({ id: s.id })">
+    					<button class="btn btn-sm btn-primary">view</button>
+						</a>
+					</td>
+				  <td>
+						<button class="btn btn-sm btn-danger" ng-click="deleteStudent(s.id)">delete</button>
+					</td>
+				</tr>
+			</table>
+    </div>
+		<div class="col-6">
+    </div>
+	</div>
 	<div ng-show="loading"><img src="/scripts/assets/spinner.gif" /></div>
 </div>
