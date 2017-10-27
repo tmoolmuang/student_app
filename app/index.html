@@ -10,11 +10,29 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 	</head>
 	<body ng-app="student">
-    <a href="home">Home</a>
+    <!-- <a href="home">Home</a>
     <a href="students">Students</a>
     <a href="courses">Courses</a>
 		<a href="student_courses">All Records</a>
-    <hr>
+    <hr> -->
+
+		<nav class="navbar navbar-toggleable navbar-inverse bg-primary">
+	    <ul class="navbar-nav">
+	      <li class="nav-item">
+	        <a class="nav-link" href="home">Home</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="students">Students</a>
+	      </li>
+				<li class="nav-item">
+					<a class="nav-link" href="courses">Courses</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="student_courses">All Records</a>
+				</li>
+	    </ul>
+		</nav>
+		<br>
 
     <ui-view></ui-view>
 
