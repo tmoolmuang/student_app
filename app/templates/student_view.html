@@ -1,51 +1,62 @@
 <div>
-	<h3>student</h3>
-	<table>
-		<thead>
-		  <tr>
-		    <th>Id</th>
-		    <th>Name</th>
-				<th></th>
-		  </tr>
-		</thead>
-		<tr>
-		  <td>{{student.id}}</td>
-		  <td>{{student.name}}</td>
-			<td><a ui-sref="student_update({ student: student })">update</a></td>
-		</tr>
-	</table>
-	<br />
-	<div ng-controller="CoursesCtrl">
-		<div ng-controller="StudentCoursesCtrl">
-			<table ng-show="student_courses.length > 0">
+	<div class="row">
+		<div class="col-1">
+		</div>
+		<div class="col-7">
+			<h3>Student</h3>
+			<table class="table table-sm">
 				<thead>
 				  <tr>
 				    <th>Id</th>
-				    <th>Course</th>
-						<th>Note</th>
+				    <th>Name</th>
 						<th></th>
 				  </tr>
 				</thead>
-				<tr ng-repeat="r in student_courses | orderBy: 'id'">
-				  <td>{{r.id}}</td>
+				<tr>
+				  <td>{{student.id}}</td>
+				  <td>{{student.name}}</td>
 					<td>
-						<select ng-model="r.course_id" ng-options="c.id as c.description for c in courses" disabled>
-						</select>
+						<a ui-sref="student_update({ student: student })">
+							<button class="btn btn-sm btn-primary">update</button>
+					 	</a>
 					</td>
-				  <td>{{r.note}}</td>
-					<td><a href="#" ng-click="deleteStudentCourse(r.id, r.student_id)">delete</a></td>
 				</tr>
 			</table>
-			<div ng-hide="student_courses.length > 0">
-				** no courses registered **
+			<div ng-controller="CoursesCtrl">
+				<div ng-controller="StudentCoursesCtrl">
+					<h4>Registered Courses</h4>
+					<table class="table table-sm table-striped" ng-show="student_courses.length > 0">
+						<thead>
+						  <tr>
+						    <th>Id</th>
+						    <th>Course</th>
+								<th>Note</th>
+								<th></th>
+						  </tr>
+						</thead>
+						<tr ng-repeat="r in student_courses | orderBy: 'id'">
+						  <td>{{r.id}}</td>
+							<td>
+								<select ng-model="r.course_id" ng-options="c.id as c.description for c in courses" disabled>
+								</select>
+							</td>
+						  <td>{{r.note}}</td>
+							<td>
+								<button class="btn btn-sm btn-danger" ng-click="deleteStudentCourse(r.id, r.student_id)">delete</button>
+						</tr>
+					</table>
+					<div ng-hide="student_courses.length > 0">
+						** no courses registered **
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>
-	<div ng-controller="StudentCourseCreateCtrl">
-		<a ui-sref="studentcourse_create({ student_id: student.id })">add course</a>
-
-		<!-- <a ui-sref="studentcourse_create({ student_id: student.id })">
-    	<button>add course</button>
-		</a> -->
+			<div ng-controller="StudentCourseCreateCtrl">
+				<a ui-sref="studentcourse_create({ student_id: student.id })">
+					<button class="btn btn-sm btn-primary">add course</button>
+				</a>
+			</div>
+    </div>
+		<div class="col-4">
+    </div>
 	</div>
 </div>
