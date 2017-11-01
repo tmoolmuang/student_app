@@ -15,7 +15,7 @@
     });
 
 		$scope.deleteStudentCourse = function(id, student_id) {
-    	if (confirm("Are you sure you want to delete this course?")) {
+    	if (confirm("Are you sure you want to delete course " + id + "?")) {
 	    	StudentCourseSvc.deleteStudentCourse(id, student_id, function(r) {
 					var pos = $scope.student_courses.map(function(e) { return e.id; }).indexOf(id);
 	        $scope.student_courses.splice(pos, 1);
