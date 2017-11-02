@@ -5,7 +5,11 @@
     $scope.createStudent = function() {
     	StudentSvc.createStudent($scope.student, function(r) {
      		$state.go("student_view", { id: r.id });
-	    });   
+	    });
+    };
+
+		$scope.cancelCreate = function() {
+   		$state.go("students");
     };
 	}
 

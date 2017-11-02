@@ -1,14 +1,20 @@
 <div>
-	<h3>register new course for student</h3>
-	<div ng-controller="CoursesCtrl">
-		<form ng-submit="createStudentCourse()">
-			course: <select ng-model="studentcourse.course_id" ng-options="c.id as c.description for c in courses">
-								<option value="">---Please select---</option>
-								{{c.description}}
-							</select><br />
-			note: <input type="text" ng-model="studentcourse.note"><br /><br />
-	    <input type="submit">
-			<button type="button" ng-click="cancelCreate()">Cancel</button>
-	  </form>
+	<div class="row">
+		<div class="col-1">
+		</div>
+		<div class="col-5" ng-controller="CoursesCtrl">
+			<h3>Register new course for student</h3>
+			<form ng-submit="createStudentCourse()">
+				Course: <br><select ng-model="studentcourse.course_id" ng-options="c.id as c.description for c in courses">
+									<option value="">---Please select---</option>
+									{{c.description}}
+								</select><br>
+				Note: <br><input type="text" ng-model="studentcourse.note"><br><br>
+				<button type="submit" class="btn btn-sm btn-success">submit</button>
+				<button type="button" class="btn btn-secondary btn-sm" ng-click="cancelCreate()">cancel</button>
+			</form>
+    </div>
+		<div class="col-6">
+    </div>
 	</div>
 </div>
