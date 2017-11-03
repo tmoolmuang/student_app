@@ -1,8 +1,17 @@
 <div>
-	<h3>New course</h3>
-	<form ng-submit="createCourse()">
-		Name:    <br/><input type="text" ng-model="course.name">    <br/><br/>     
-		Description:    <br/><input type="text" ng-model="course.description">    <br/><br/>     
-    <input type="submit">
-  </form>
+	<div class="row">
+		<div class="col-1">
+		</div>
+		<div class="col-5">
+			<h3>New course</h3>
+			<form ng-submit="createCourse()">
+				Name:<br><input type="text" ng-model="course.name"><br><br>
+				Description:<br><input type="text" ng-model="course.description"><br><br>
+				<button type="submit" class="btn btn-sm btn-success">submit</button>
+				<button type="button" class="btn btn-secondary btn-sm" ng-click="cancelCreate()">cancel</button>
+		  </form>
+    </div>
+		<div class="col-6">
+    </div>
+	</div>
 </div>

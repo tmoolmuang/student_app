@@ -1,19 +1,31 @@
 <div>
-	<h3>course</h3>
-	<table>
-		<thead>
-		  <tr>
-		    <th>Id</th>
-		    <th>Name</th>
-		    <th>Description</th>
-				<th></th>
-		  </tr>
-		</thead>
-		<tr>
-		  <td>{{course.id}}</td>
-		  <td>{{course.name}}</td>
-		  <td>{{course.description}}</td>
-			<td><a ui-sref="course_update({ course: course })">update</a></td>
-		</tr>
-	</table>
+	<div class="row">
+		<div class="col-1">
+		</div>
+		<div class="col-7">
+			<h3>Course</h3>
+			<table class="table table-sm">
+				<thead>
+				  <tr>
+				    <th>Id</th>
+				    <th>Name</th>
+				    <th>Description</th>
+						<th></th>
+				  </tr>
+				</thead>
+				<tr>
+				  <td>{{course.id}}</td>
+				  <td>{{course.name}}</td>
+				  <td>{{course.description}}</td>
+					<td>
+						<a ui-sref="course_update({ course: course })">
+							<button class="btn btn-sm btn-primary">update</button>
+						</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-4">
+		</div>
+	</div>
 </div>

@@ -1,21 +1,29 @@
 <div>
 	<div ng-show="loading"><img src="/scripts/assets/spinner.gif" /></div>
-	<div ng-repeat="coursesPerStudent in allRecords() | filter: filterStudents | orderBy: 'student_id'">
-		<span>Student: <strong>{{coursesPerStudent.student_name}}</strong></span>
-		<table>
-			<thead>
-				<tr>
-					<th>CourseName</th>
-					<th>Note</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tr ng-repeat="course in lookuprecords | filter: {student_id: coursesPerStudent.student_id } | orderBy: 'course_id'">
-				<td>{{course.course_name}}</td>
-				<td>{{course.note}}</td>
-				<td></td>
-			</tr>
-		</table>
-		<hr>
+	<div class="row">
+		<div class="col-1">
+		</div>
+		<div class="col-5">
+			<div ng-repeat="coursesPerStudent in allRecords() | filter: filterStudents | orderBy: 'student_id'">
+				Student:&nbsp<span class="bg-primary text-white"><strong>&nbsp{{coursesPerStudent.student_name}}&nbsp</strong></span>
+				<table class="table table-sm table-striped">
+					<thead>
+						<tr>
+							<th>Course name</th>
+							<th>Note</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tr ng-repeat="course in lookuprecords | filter: {student_id: coursesPerStudent.student_id } | orderBy: 'course_id'">
+						<td>{{course.course_name}}</td>
+						<td>{{course.note}}</td>
+						<td></td>
+					</tr>
+				</table>
+				<hr>
+			</div>
+		</div>
+		<div class="col-6">
+	  </div>
 	</div>
 </div>

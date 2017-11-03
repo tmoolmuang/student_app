@@ -5,11 +5,11 @@
 		<div class="col-5" ng-controller="CoursesCtrl">
 			<h3>Register new course for student</h3>
 			<form ng-submit="createStudentCourse()">
-				Course: <br><select ng-model="studentcourse.course_id" ng-options="c.id as c.description for c in courses">
+				Course:<br><select ng-model="studentcourse.course_id" ng-options="c.id as c.description for c in courses">
 									<option value="">---Please select---</option>
 									{{c.description}}
-								</select><br>
-				Note: <br><input type="text" ng-model="studentcourse.note"><br><br>
+								</select><br><br>
+				Note:<br><input type="text" ng-model="studentcourse.note"><br><br>
 				<button type="submit" class="btn btn-sm btn-success">submit</button>
 				<button type="button" class="btn btn-secondary btn-sm" ng-click="cancelCreate()">cancel</button>
 			</form>
