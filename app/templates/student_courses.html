@@ -5,19 +5,17 @@
 		</div>
 		<div class="col-5">
 			<div ng-repeat="coursesPerStudent in allRecords() | filter: filterStudents | orderBy: 'student_id'">
-				Student:&nbsp<span class="bg-primary text-white"><strong>&nbsp{{coursesPerStudent.student_name}}&nbsp</strong></span>
+				Student:&nbsp;<span class="bg-primary text-white"><strong>&nbsp;{{coursesPerStudent.student_name}}&nbsp;</strong></span>
 				<table class="table table-sm table-striped">
 					<thead>
 						<tr>
 							<th>Course name</th>
 							<th>Note</th>
-							<th></th>
 						</tr>
 					</thead>
 					<tr ng-repeat="course in lookuprecords | filter: {student_id: coursesPerStudent.student_id } | orderBy: 'course_id'">
 						<td>{{course.course_name}}</td>
 						<td>{{course.note}}</td>
-						<td></td>
 					</tr>
 				</table>
 				<hr>
